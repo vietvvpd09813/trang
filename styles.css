@@ -68,13 +68,15 @@ body::before {
     transform: translateY(0) rotateX(0);
     transition: var(--transition);
     width: 100%;
-    height: 100%;
-    max-height: 800px;
+    height: auto;
+    max-height: 92vh;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
     position: relative;
     transform-style: preserve-3d;
     backdrop-filter: blur(5px);
+    aspect-ratio: 1.414 / 1; /* Golden ratio approximation for a pleasing look */
 }
 
 .card:hover {
@@ -84,11 +86,12 @@ body::before {
 
 .profile {
     text-align: center;
-    padding: 35px 20px;
+    padding: 3.5% 3%;
     position: relative;
     background: linear-gradient(135deg, rgba(255, 107, 107, 0.9), rgba(121, 113, 234, 0.9));
     color: white;
     overflow: hidden;
+    flex: 0 0 auto;
 }
 
 .profile::before {
@@ -120,8 +123,8 @@ body::before {
 .image-container {
     position: relative;
     margin: 0 auto;
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     overflow: hidden;
     border: 5px solid rgba(255, 255, 255, 0.6);
@@ -176,8 +179,8 @@ body::before {
 }
 
 .name h1 {
-    margin-top: 20px;
-    font-size: 32px;
+    margin-top: 16px;
+    font-size: clamp(20px, 4vw, 32px);
     font-weight: 700;
     letter-spacing: 1px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
@@ -186,7 +189,7 @@ body::before {
 }
 
 .subtitle {
-    font-size: 16px;
+    font-size: clamp(14px, 2vw, 16px);
     font-weight: 500;
     margin-top: 8px;
     opacity: 0.9;
@@ -197,7 +200,7 @@ body::before {
 
 /* Content slider with images and text */
 .content-wrapper {
-    padding: 35px 30px;
+    padding: 3.5% 3%;
     position: relative;
     flex: 1;
     display: flex;
@@ -226,6 +229,7 @@ body::before {
     -webkit-overflow-scrolling: touch;
     z-index: 1;
     padding: 0 5px;
+    margin-bottom: 10px;
 }
 
 .content-slider::-webkit-scrollbar {
@@ -268,17 +272,19 @@ body::before {
     flex-direction: column;
     align-items: center;
     gap: 25px;
+    height: 100%;
 }
 
 .slide-image {
     width: 100%;
     max-width: 350px;
-    height: 230px;
+    height: 200px;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
     position: relative;
     transform: translateZ(0);
+    aspect-ratio: 16 / 9;
 }
 
 .slide-image::after {
@@ -325,7 +331,7 @@ body::before {
 }
 
 .slide-text i {
-    font-size: 38px;
+    font-size: clamp(28px, 4vw, 38px);
     color: var(--primary-color);
     margin-bottom: 18px;
     display: inline-block;
@@ -349,7 +355,7 @@ body::before {
 }
 
 .slide-text h2 {
-    font-size: 24px;
+    font-size: clamp(18px, 3vw, 24px);
     font-weight: 700;
     margin-bottom: 12px;
     color: var(--dark-color);
@@ -357,7 +363,7 @@ body::before {
 }
 
 .slide-text p {
-    font-size: 16px;
+    font-size: clamp(14px, 2vw, 16px);
     color: #555;
     line-height: 1.7;
     font-weight: 400;
@@ -367,7 +373,7 @@ body::before {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 35px;
+    margin-top: 20px;
     z-index: 1;
     position: relative;
 }
@@ -414,20 +420,21 @@ body::before {
 }
 
 .special-message {
-    padding: 25px 30px 35px;
+    padding: 20px 20px 25px;
     text-align: center;
     background: linear-gradient(to top, white, rgba(255, 255, 255, 0.8));
     position: relative;
     z-index: 1;
+    flex: 0 0 auto;
 }
 
 #special-btn {
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     color: white;
     border: none;
-    padding: 14px 35px;
+    padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 35px);
     border-radius: 30px;
-    font-size: 16px;
+    font-size: clamp(14px, 2vw, 16px);
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
@@ -530,7 +537,7 @@ body::before {
 .modal-content h2 {
     margin-bottom: 18px;
     color: var(--dark-color);
-    font-size: 28px;
+    font-size: clamp(22px, 4vw, 28px);
     font-family: 'Dancing Script', cursive;
     font-weight: 700;
     text-align: center;
@@ -539,7 +546,7 @@ body::before {
 .modal-content p {
     margin-bottom: 30px;
     color: #555;
-    font-size: 17px;
+    font-size: clamp(15px, 2vw, 17px);
     line-height: 1.7;
     text-align: center;
 }
@@ -551,10 +558,10 @@ body::before {
 }
 
 #yes-btn, #maybe-btn {
-    padding: 12px 25px;
+    padding: clamp(10px, 2vw, 12px) clamp(15px, 3vw, 25px);
     border: none;
     border-radius: 30px;
-    font-size: 15px;
+    font-size: clamp(13px, 2vw, 15px);
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
@@ -588,12 +595,12 @@ body::before {
 
 /* Nút đóng trong modal khi đã chọn */
 .close-btn {
-    padding: 12px 30px;
+    padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 30px);
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     color: white;
     border: none;
     border-radius: 30px;
-    font-size: 15px;
+    font-size: clamp(13px, 2vw, 15px);
     font-weight: 600;
     margin-top: 20px;
     cursor: pointer;
@@ -622,7 +629,7 @@ body::before {
 
 .animal {
     position: absolute;
-    font-size: 30px;
+    font-size: clamp(25px, 3vw, 30px);
     opacity: 0.85;
     filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.25));
     animation: float-animal 15s linear infinite;
@@ -670,7 +677,7 @@ body::before {
 /* Hiệu ứng con vật nhảy lên xuống */
 .bounce-animal {
     position: absolute;
-    font-size: 30px;
+    font-size: clamp(25px, 3vw, 30px);
     filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.25));
     animation: bounce-animal 3s ease infinite;
     z-index: 50;
@@ -693,7 +700,8 @@ body::before {
 /* Responsive Design */
 @media (min-width: 768px) {
     .card {
-        max-width: 90vw;
+        max-width: 900px;
+        aspect-ratio: 1.618 / 1; /* Golden ratio for a pleasing look */
     }
     
     .slide-content {
@@ -705,7 +713,8 @@ body::before {
     
     .slide-image {
         width: 48%;
-        height: 280px;
+        height: auto;
+        aspect-ratio: 16 / 10;
     }
     
     .slide-text {
@@ -720,6 +729,11 @@ body::before {
     .modal-content {
         padding: 40px;
     }
+    
+    .image-container {
+        width: 150px;
+        height: 150px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -730,31 +744,16 @@ body::before {
     .card {
         border-radius: calc(var(--border-radius) - 5px);
         max-height: 100vh;
+        aspect-ratio: auto;
+        height: 95vh;
     }
     
     .profile {
         padding: 25px 15px;
     }
     
-    .image-container {
-        width: 130px;
-        height: 130px;
-    }
-    
-    .name h1 {
-        font-size: 26px;
-    }
-    
     .content-wrapper {
         padding: 25px 20px;
-    }
-    
-    .slide-text h2 {
-        font-size: 22px;
-    }
-    
-    .slide-text p {
-        font-size: 15px;
     }
 }
 
@@ -775,20 +774,9 @@ body::before {
         height: 110px;
     }
     
-    .name h1 {
-        font-size: 24px;
-    }
-    
-    .subtitle {
-        font-size: 15px;
-    }
-    
-    .slide-text {
-        padding: 12px;
-    }
-    
-    .slide-text h2 {
-        font-size: 20px;
+    .slide-image {
+        height: auto;
+        aspect-ratio: 4 / 3;
     }
     
     .modal-content {
@@ -803,8 +791,11 @@ body::before {
     #yes-btn, #maybe-btn {
         width: 100%;
     }
-    
-    .slide-image {
-        height: 200px;
+}
+
+/* Thiết lập chuyển động mượt hơn */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
     }
 } 
