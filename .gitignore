@@ -1,0 +1,42 @@
+# Các thư mục và file hệ thống
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Thư mục node modules (nếu sau này bạn sử dụng npm)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Thư mục build và phân phối
+/dist
+/build
+/.next
+/out
+/.nuxt
+
+# Các file môi trường và bảo mật
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Các thư mục và file cache
+.cache/
+.vercel/
+.netlify/
+
+# Các thư mục IDE và Editor
+/.idea
+/.vscode
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# Các file log
+*.log
+logs 
